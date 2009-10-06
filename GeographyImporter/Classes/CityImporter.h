@@ -1,5 +1,8 @@
 @class AppDelegate;
 
+/**
+ * Imports a list of cities into Core Data.
+ */
 @interface CityImporter : NSOperation
 {
     AppDelegate *delegate_;

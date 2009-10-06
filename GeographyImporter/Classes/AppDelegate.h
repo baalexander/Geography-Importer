@@ -1,5 +1,9 @@
 #import <Cocoa/Cocoa.h>
 
+
+/**
+ * Handles the selecting and importing actions by the user.
+ */
 @interface AppDelegate : NSObject 
 {
     NSWindow *window_;

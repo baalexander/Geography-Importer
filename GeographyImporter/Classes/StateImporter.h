@@ -1,5 +1,8 @@
 @class AppDelegate;
 
+/**
+ * Imports a list of states into Core Data
+ */
 @interface StateImporter : NSOperation
 {
     AppDelegate *delegate_;

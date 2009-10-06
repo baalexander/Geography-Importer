@@ -33,6 +33,9 @@
     [super dealloc];
 }
 
+/**
+ * Saves the Core Data SQLite file into ~/Library/Application Support/GeographyImporter/
+ */
 - (NSString *)applicationSupportDirectory
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
@@ -53,7 +56,7 @@
 }
 
 
-- (NSPersistentStoreCoordinator *) persistentStoreCoordinator
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinator
 {
     if (persistentStoreCoordinator_ == nil)
     {
@@ -81,6 +84,7 @@
             }
         }
         
+        // The application will be saved as an SQLite file
         NSURL *url = [NSURL fileURLWithPath: [applicationSupportDirectory stringByAppendingPathComponent:@"Geography.sqlite"]];
         
         NSPersistentStoreCoordinator *persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:mom];
@@ -151,6 +155,9 @@
     }
 }
 
+/**
+ * Brings up File select box for state CSV file
+ */
 - (IBAction)chooseStateFile:(id)sender;
 {
     NSOpenPanel *openPanel = [NSOpenPanel openPanel];
@@ -175,6 +182,9 @@
     [self setStateFilePath:[openPanel filename]];
 }
 
+/**
+ * Brings up File select box for city CSV file
+ */
 - (IBAction)chooseCityFile:(id)sender;
 {
     NSOpenPanel *openPanel = [NSOpenPanel openPanel];
@@ -199,6 +209,9 @@
     [self setCityFilePath:[openPanel filename]];
 }
 
+/**
+ * Imports the state CSV file into Core Data
+ */
 - (IBAction)importState:(id)sender;
 {
     StateImporter *importer = [[StateImporter alloc] initWithDelegate:self];
@@ -216,6 +229,9 @@
     [importer release];
 }
 
+/**
+ * Imports the city CSV file into Core Data
+ */
 - (IBAction)importCity:(id)sender;
 {
     CityImporter *importer = [[CityImporter alloc] initWithDelegate:self];
