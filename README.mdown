@@ -15,6 +15,9 @@ The project is broken into two parts:
    from Census Parser into a Core Data SQLite file. This file can be added to 
    any iPhone or Mac project.
 
+Please let me know of any missing cities or other issues. Better yet, fork and
+make the changes!
+
 To run
 ======
 
