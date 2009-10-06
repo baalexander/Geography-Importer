@@ -1,0 +1,55 @@
+Geography Importer
+==================
+
+Geography Importer parses United States census data and imports the states, 
+cities, and their relationships into a Core Data SQLite file, which can be 
+used in iPhone or Mac apps.
+
+The project is broken into two parts:
+
+1. Census Parser. Contains the most recent census population data and two 
+   python scripts for parsing the census data and exporting as CSV files for 
+   states and cities.
+
+2. Geography Importer. A Mac application that imports the CSV files generated 
+   from Census Parser into a Core Data SQLite file. This file can be added to 
+   any iPhone or Mac project.
+
+To run
+======
+
+In the terminal:
+
+1. cd into the CensusParser directory
+
+2. python stateParser.py
+
+3. python cityParser.py
+
+You will now have two new files: states.csv and cities.csv.
+
+In the GeographyImporter project:
+
+1. Build and run
+
+2. Select your states.csv file and click Import.
+
+3. Select your cities.csv file and click Import.
+
+4. Close the app.
+
+5. You will find the generated SQLite file in
+   ~/Library/Application Support/GeographyImporter/Geography.sqlite
+
+To configure
+============
+
+You can configure the population threshold for included cities in
+cityParser.py.
+
+License
+=======
+
+This project is released under the MIT license. See the LICENSE file included 
+in the project for more details.
+
